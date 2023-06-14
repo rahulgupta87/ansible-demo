@@ -1,0 +1,11 @@
+- name: Executing the script for linux
+  command: sh /ansible_process/server_info.sh
+  when: system_type == "linux"
+
+- name: Executing the script for aix
+  command: /ansible_process/server_info.sh
+  when: system_type == "aix"
+  
+- name: Executing the script for windows
+  win_command: cmd.exe /c C:\ansible_process\server_info.cmd
+  when: system_type == "windows"

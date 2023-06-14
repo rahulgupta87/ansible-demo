@@ -1,0 +1,11 @@
+[linux]
+usrvlinux1 ansible_connection=ssh ansible_host=10.10.171.1 ansible_port=22 ansible_user=root ansible_password=XXXX hostname=usrvlinux1
+usrvlinux2 ansible_connection=ssh ansible_host=10.10.171.2 ansible_port=22 ansible_user=root ansible_password=XXXX hostname=usrvlinux2
+
+[aix]
+usrvaix1 ansible_connection=ssh ansible_host=10.10.172.1 ansible_port=22 ansible_user=root hostname=usrvaix1
+usrvaix2 ansible_connection=ssh ansible_host=10.10.172.2 ansible_port=22 ansible_user=root hostname=usrvaix2
+
+[windows]
+usrvwin1 ansible_connection=winrm ansible_host=10.10.173.1 ansible_port=5986 ansible_user=administrator ansible_password=XXXX hostname=usrvwin1 ansible_winrm_server_cert_validation=ignore
+usrvwin2 ansible_connection=winrm ansible_host=10.10.173.2 ansible_port=5986 ansible_user=administrator ansible_password=XXXX hostname=usrvwin2 ansible_winrm_server_cert_validation=ignore

@@ -1,0 +1,18 @@
+- name: Playbook for {{ system }} servers
+#  strategy: free
+# serial: 3
+  hosts: "{{ system }}"
+#  gather_facts: "no"
+#  any_errors_fatal: true
+
+  tasks:    
+    - include: ./playbook_tasks/task_ping.yml system_type={{ system }}
+
+    - include: ./playbook_tasks/task_copy_objects.yml system_type={{ system }}
+    
+    - include: ./playbook_tasks/task_execute_script.yml system_type={{ system }}
+      ignore_errors: yes
+    
+    - include: ./playbook_tasks/task_retrieve_reports.yml system_type={{ system }}
+    
+    - include: ./playbook_tasks/task_eliminate_objects.yml system_type={{ system }}

@@ -1,0 +1,29 @@
+***** System Information *****
+Hostname: usrvlinux1
+Kernel Version: 5.4.0-84-generic
+Distribution: Ubuntu 20.04.3 LTS
+
+***** CPU Information *****
+CPU Model: Intel(R) Xeon(R) CPU E5-2680 v4 @ 2.40GHz
+CPU Cores: 56
+CPU Usage: 8%
+
+***** Memory Information *****
+Total Memory: 62G
+Used Memory: 20G
+Free Memory: 41G
+
+***** Disk Usage *****
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/sda1        20G   12G  7.7G  61% /
+/dev/sdb1       197G   45G  143G  24% /data
+
+***** Network Information *****
+eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 10.10.172.1  netmask 255.255.255.0  broadcast 192.168.172.255
+        inet6 fe80::a00:27ff:fea7:73c1  prefixlen 64  scopeid 0x20<link>
+        ether 08:00:27:a7:73:c1  txqueuelen 1000  (Ethernet)
+        RX packets 213249  bytes 299543383 (299.5 MB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 5036  bytes 494847 (494.8 KB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0

@@ -1,0 +1,23 @@
+***** System Information *****
+Hostname: usrvaix1
+Kernel Version: 7.2.3.0
+Distribution: AIX
+
+***** CPU Information *****
+CPU Model: POWER9
+CPU Cores: 16
+CPU Usage: 15%
+
+***** Memory Information *****
+Total Memory: 64 GB
+Used Memory: 32 GB
+Free Memory: 32 GB
+
+***** Disk Usage *****
+Filesystem     Size   Used  Avail Capacity Mounted on
+/dev/hd4       10 GB   5 GB   5 GB      50% /
+/dev/hd2       20 GB  10 GB  10 GB      50% /usr
+
+***** Network Information *****
+en0: flags=1e084863,480
+    inet 10.10.171.1 netmask 0xffffff00 broadcast 10.10.171.255

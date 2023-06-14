@@ -1,0 +1,7 @@
+- name: Check ping connection
+  win_ping:
+  when: system_type == "windows"
+  
+- name: Check ping connection
+  ping:
+  when: system_type != "windows"

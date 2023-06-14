@@ -1,0 +1,29 @@
+- name: Find reports generated for linux and aix servers
+  find:
+    paths: /ansible_process
+    patterns: 'Report_{{ hostname }}.txt'
+  register: find_results_linux_aix
+  when: system_type != "windows"
+  
+- name: Retrieve report generated for linux and aix servers
+  fetch:
+    src: '{{ item.path }}'
+    dest: ./repository_results/linux/
+    flat: yes
+  loop: "{{ find_results_linux_aix.files }}"
+  when: system_type != "windows"
+
+- name: Find reports generated for windows servers
+  win_find:
+    paths: C:\ansible_process
+    patterns: [ '*.txt' ]
+  register: find_results_windows
+  when: system_type == "windows"
+      
+- name: Retrieve report generated for windows servers
+  fetch: 
+    src: '{{ item.path }}'
+    dest: ./repository_results/
+    flat: yes
+  loop: "{{ find_results_windows.files }}"
+  when: system_type == "windows"

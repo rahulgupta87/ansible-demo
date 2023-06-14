@@ -1,0 +1,27 @@
+- name: Copying scripts to linux servers
+  copy:
+    src: ./repository_scripts/{{ item }}
+    dest: /ansible_process/{{ item }}
+    owner: root
+    group: root
+    mode: '777'
+  with_items:
+  - server_info.sh
+  when: system_type == "linux"
+  
+- name: Copying scripts to aix servers
+  copy:
+    src: ./repository_scripts/{{ item }}
+    dest: /ansible_process/{{ item }}
+    owner: root
+    group: system
+    mode: '777'
+  with_items:
+  - server_info.sh
+  when: system_type == "aix"
+
+- name: Copying scripts to windows servers
+  win_copy:
+    src: ./repository_scripts/{{ item }}/server_info.exe
+    dest: C:\ansible_process\server_info.exe
+  when: system_type == "windows"

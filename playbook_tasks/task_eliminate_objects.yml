@@ -1,0 +1,38 @@
+- name: Find reports generated for windows servers
+  win_find:
+    paths: C:\ansible_process
+    patterns: [ '*.txt' ]
+  register: find_results_windows
+  when: system_type == "windows"
+  
+- name: Eliminate generated reports for windows
+  win_file:
+    path: '{{ item.path }}'
+    state: absent
+  loop: "{{ find_results_windows.files }}"
+  when: system_type == "windows"
+  
+- name: Find reports generated for {{ system_type }} servers
+  find:
+    paths: /ansible_process
+    patterns: '*.txt'
+  register: find_results_others
+  when: (system_type == "linux" or system_type == "aix")
+  
+- name: Eliminate generated reports for others
+  file: path='{{ item.path }}' state=absent
+  loop: "{{ find_results_others.files }}"
+  when: (system_type == "linux" or system_type == "aix")
+    
+- name: Eliminating windows scripts
+  win_file:
+    path: C:\ansible_process\server_info.exe
+    state: absent
+  when: system_type == "windows"
+  
+- name: Eliminating {{ system_type }} scripts
+  file: path='{{ item }}' state=absent
+  with_items:
+  - /ansible_process/server_info.sh
+  when: (system_type == "linux" or system_type == "aix")
+  
